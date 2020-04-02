@@ -3,7 +3,7 @@ from datetime import datetime
 import sys
 
 ## This script only works on Linux systems with Scapy installed
-## The script will automaticcaly listen for unencrypted Identity Response 
+## The script will automatically listen for unencrypted Identity Response 
 ## packets and save the MAC Address + User identity in a file
 
 # Interfaces to use for scanning, they should already be in monitor mode
@@ -12,9 +12,9 @@ import sys
 # example: [('wlan0mon', '1'), ('wlan1mon', '6'), ('wlan2mon', '11')] 
 iface = [('wlan0mon', '1'), ('wlan1mon', '6'), ('wlan2mon', '11')] 
 
-# Filename to store mac adresses + identities, if file doesn't exist items
-# will be created. If the file already exists new mac adresses that don't
-# already exis in the file will be appended.
+# Filename to store mac addresses + identities, if file doesn't exist items
+# will be created. If the file already exists new mac addresses that don't
+# already exist in the file will be appended.
 filename = "id.txt"
 
 # Create file if not already exists

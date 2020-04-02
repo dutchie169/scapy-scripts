@@ -16,7 +16,7 @@ import sys
 iface = 'wlan0mon'
 
 # List of BSSID's of AP's and corresponding channels to use, they should all be in range of the wifiadapter.
-# More AP's will make the chance of succes greater
+# More AP's will make the chance of success greater
 # CHANGE THIS
 aps = [ ['ff:ff:ff:ff:ff:ff', '1'], 
 		['ff:ff:ff:ff:ff:ff', '6'],
