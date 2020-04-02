@@ -25,15 +25,16 @@ for i in range(len(iface)):
 	ret = "Error"		
 	while "Error" in ret:
 		ret = os.popen('iwconfig %s channel %s' % (iface[i][0], iface[i][1])).read()
+		print(ret)
 	iface[i] = iface[i][0]
 
 # Function that will be called for every package to check for Request ID(Eap type 1, code 2)
 def checkID(p):
 	if p.haslayer(EAP) and p.getlayer(EAP).code == 2 and p.getlayer(EAP).type == 1:
 		mac = p.getlayer(Dot11).addr2
-		id = datetime.now().strftime("%Y-%m-%d, %H:%M:%S") + ":\t" mac + ": " + str(p.getlayer(EAP).identity)
+		id = datetime.now().strftime("%Y-%m-%d, %H:%M:%S") + ":\t" + mac + ": " + str(p.getlayer(EAP).identity)
 		
-		print("\t\tFound "+id " \t adding to " + filename)
+		print("\t\tFound " + id + " \t adding to " + filename)
 		
 		f = open(filename, 'a+')
 		r = f.readlines()
@@ -41,6 +42,7 @@ def checkID(p):
 			f.write(id + '\n')
 		f.close()
 
+print("Starting sniffing")
 # Start sniffing
 sniff(iface = iface, prn = checkID)
 

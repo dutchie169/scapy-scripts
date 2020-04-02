@@ -52,7 +52,7 @@ vendor2 = Dot11Elt(ID=221, len=8, info=a2b_hex('8cfdf00101020100'))
 # Let user choose when to inject package, on key press all BSSID's will be targeted with a short delay
 # between package injections
 while 1:
-	input("Press enter")
+	raw_input("Press enter")
 	for mac in aps:
 		ret = "Error"		
 		while "Error" in ret:
